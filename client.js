@@ -17,8 +17,6 @@ const connect = function() {
   conn.on('connect', () => {
     const initials = 'LH';
     conn.write(`Name: ${initials}`);
-    // setInterval(() => conn.write(`Move: up`), 50);
-    // setInterval(() => conn.write(`Move: right`), 100);
   });
   
   conn.on('data', (message) => {
@@ -27,6 +25,5 @@ const connect = function() {
   
   return conn;
 };
-
 
 module.exports = connect;
