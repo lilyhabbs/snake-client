@@ -1,21 +1,22 @@
 // Stores the active TCP connection object.
 let connection;
 let movement;
+const { speed, MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY } = require('./constants');
 
 const handleUserInput = (key) => {
   clearInterval(movement);
   switch (key) {
-    case 'w':
-      movement = setInterval(() => connection.write(`Move: up`), 50);
+    case MOVE_UP_KEY:
+      movement = setInterval(() => connection.write(`Move: up`), speed);
       break;
-    case 'a':
-      movement = setInterval(() => connection.write(`Move: left`), 50);
+    case MOVE_LEFT_KEY:
+      movement = setInterval(() => connection.write(`Move: left`), speed);
       break;
-    case 's':
-      movement = setInterval(() => connection.write(`Move: down`), 50);
+    case MOVE_DOWN_KEY:
+      movement = setInterval(() => connection.write(`Move: down`), speed);
       break;
-    case 'd':
-      movement = setInterval(() => connection.write(`Move: right`), 50);
+    case MOVE_RIGHT_KEY:
+      movement = setInterval(() => connection.write(`Move: right`), speed);
       break;
     case '\u0003': // Ctrl + c (terminate game)
       process.exit();
