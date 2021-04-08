@@ -20,6 +20,15 @@ const handleUserInput = (key) => {
     case '\u0003': // Ctrl + c (terminate game)
       process.exit();
       break;
+    case 'j':
+      connection.write(`Say: Having fun yet?`);
+      break;
+    case 'k':
+      connection.write(`Say: Almost there!`);
+      break;
+    case 'l':
+      connection.write(`Say: You can do it!`);
+      break;  
   }
 };
 
